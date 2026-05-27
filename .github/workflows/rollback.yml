@@ -8,9 +8,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Rollback info
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create rollback log
         run: |
-          echo "Rollback workflow executed" > rollback_logs.txt
+          echo "Rollback completed successfully" > rollback_logs.txt
+          echo "Repository: ${{ github.repository }}" >> rollback_logs.txt
           echo "User: ${{ github.actor }}" >> rollback_logs.txt
           echo "Date: $(date)" >> rollback_logs.txt
 
